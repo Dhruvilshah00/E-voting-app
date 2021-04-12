@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "154086718077",
+    "project_id": "e-voting-app-b7362",
+    "storage_bucket": "e-voting-app-b7362.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154086718077:android:cded165b298e06d3e28f14",
+        "android_client_info": {
+          "package_name": "com.dhruvil.voting_app_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154086718077-8omvjve097f3vo8ur28uampq2hki3jlf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dhruvil.voting_app_final",
+            "certificate_hash": "9988a335e15e3c07bad745cb227f5c3216f51050"
+          }
+        },
+        {
+          "client_id": "154086718077-seg9plfvhf55v0fh07qr3cpi65cs2afl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLGCXm2CW4ZIaPNRAoNIZlwwWhHThfVjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154086718077-seg9plfvhf55v0fh07qr3cpi65cs2afl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
