@@ -22,6 +22,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: Text('E-voting'),
@@ -60,7 +61,7 @@ class _MainPageState extends State<MainPage> {
                     icon: Image.asset('assets/create.jpg'),
                     iconSize: 150,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/cv');
+                      Navigator.pushNamed(context, '/vi');
                     },
                   ),
                   Container(
@@ -90,7 +91,7 @@ class _MainPageState extends State<MainPage> {
                     icon: Image.asset('assets/vote.jpg'),
                     iconSize: 150,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/getid');
+                      Navigator.pushNamed(context, '/vp');
                     },
                   ),
                   Container(

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app_final/main_page/result/Result_panel.dart';
 
-class ResultPage extends StatefulWidget {
-  @override
-  _ResultPageState createState() => _ResultPageState();
-}
+class ResultPage extends StatelessWidget {
+  String Vkey;
 
-class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +23,7 @@ class _ResultPageState extends State<ResultPage> {
                 )
             ),
             child: TextField(
+              onChanged: (val){this.Vkey=val;},
               decoration: InputDecoration(
                   hintText: "Enter the unique ID",
                   hintStyle: TextStyle(color: Colors.grey),
@@ -54,8 +53,13 @@ class _ResultPageState extends State<ResultPage> {
                   borderRadius: BorderRadius.all(Radius.circular(10.0))
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/result');
+                print('key : ${this.Vkey}');
+                // Navigator.pushNamed(context, '/result');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ResultPanel(Vkey: this.Vkey,))
+                );
               },
+
             ),
           ),
           SizedBox(height: 20.0,),

@@ -6,9 +6,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'database.dart';
 
 class UserData {
-  UserData({ this.uid,this.name});
+  UserData({ this.uid,this.name,this.photoURL});
   final String uid;
   final String name;
+  final String photoURL;
 }
 
 abstract class AuthBase {
@@ -25,7 +26,7 @@ class Auth implements AuthBase {
     if (user == null) {
       return null;
     }
-    return UserData(uid: user.uid,name: user.displayName);
+    return UserData(uid: user.uid,name: user.displayName,photoURL: user.photoURL);
   }
 
   @override
@@ -52,7 +53,7 @@ class Auth implements AuthBase {
             accessToken: googleAuth.accessToken,
           ),
         );
-        await DatabaseService(uid: authResult.user.uid).updateUserData(authResult.user.displayName, "Student",authResult.user.email);
+        await DatabaseService(uid: authResult.user.uid).updateUserData(authResult.user.displayName, "Student",authResult.user.email,authResult.user.photoURL);
         return _userFromFirebase(authResult.user);
       } else {
         throw PlatformException(

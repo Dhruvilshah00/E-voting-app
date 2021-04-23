@@ -5,7 +5,6 @@ import 'package:voting_app_final/services/database.dart';
 
 class ProfilePage extends StatefulWidget {
 
-
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -15,12 +14,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserData>(context);
-    var temp = user.uid;
     // temp = null?user.uid:user.uid;
     return StreamBuilder<UserProfile>(
-        stream: DatabaseService(uid: temp!=null?user.uid:'not null').userData,//error as ujas
+        stream: DatabaseService(uid: user.uid ?? '').userData,
         builder: (context, snapshot) {
-          print("user id is : ${temp}");
           if (snapshot.hasData) {
             UserProfile userProfile = snapshot.data;
             return Padding(
@@ -30,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: <Widget>[
                   Center(
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/profile.png'),
+                      backgroundImage: NetworkImage(userProfile.photoURL),
                       radius: 60.0,
                     ),
                   ),
@@ -47,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    userProfile.name,
+                    userProfile.name??'Your Name',
                     style: TextStyle(
                       color: Colors.amberAccent[200],
                       letterSpacing: 2.0,
@@ -65,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    userProfile.occupation,
+                    userProfile.occupation??'Your Occupation',
                     style: TextStyle(
                       color: Colors.amberAccent[200],
                       letterSpacing: 2.0,
@@ -82,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       SizedBox(width: 10.0),
                       Text(
-                        userProfile.email,
+                        userProfile.email??'email',
                         style: TextStyle(
                           color: Colors.grey[400],
                           fontSize: 18.0,
@@ -96,7 +93,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             );
           } else
-            return CircularProgressIndicator();
+             return CircularProgressIndicator();
         });
   }
 }
