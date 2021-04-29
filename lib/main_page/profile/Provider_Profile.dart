@@ -3,6 +3,17 @@ import 'package:voting_app_final/main_page/profile/profile_page.dart';
 import 'package:voting_app_final/services/auth.dart';
 
 class ProviderProfile extends StatelessWidget {
+  final AuthBase auth;
+
+  const ProviderProfile({ this.auth});
+
+  Future<void> _signOut() async {
+    try {
+      await auth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,21 +28,21 @@ class ProviderProfile extends StatelessWidget {
           color: Colors.amberAccent,
         ),
         ),
-        actions: [
-          // ignore: deprecated_member_use
-          FlatButton(
-            child: Text(
-              'Logout',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                fontSize: 17.0,
-              ),
-            ),
-            onPressed: () {
-              // widget._signOut();
-            },
-          )
-        ],
+        // actions: [
+        //   // ignore: deprecated_member_use
+        //   FlatButton(
+        //     child: Text(
+        //       'Logout',
+        //       style: TextStyle(
+        //         color: Colors.amberAccent,
+        //         fontSize: 17.0,
+        //       ),
+        //     ),
+        //     onPressed: () {
+        //       _signOut();
+        //     },
+        //   )
+        // ],
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.grey[850],
@@ -41,6 +52,8 @@ class ProviderProfile extends StatelessWidget {
         height: 50.0,
         width: 200.0,
         child: FloatingActionButton.extended(
+          backgroundColor:  Colors.amberAccent,
+          foregroundColor: Colors.grey[850],
           onPressed: (){
             Navigator.pushNamed(context, '/updateprofile');
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app_final/main_page/profile/Provider_Profile.dart';
 import 'package:voting_app_final/services/auth.dart';
 
 class MainPage extends StatefulWidget {
@@ -158,7 +159,10 @@ class _MainPageState extends State<MainPage> {
                     icon: Image.asset('assets/profile.png'),
                     iconSize: 150,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/profilep');
+                      // Navigator.pushNamed(context, '/profilep');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ProviderProfile(auth: Auth(),) )
+                      );
                     },
                   ),
                   Container(

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app_final/main_page/voting/Voting_Panel.dart';
+import 'package:wc_form_validators/wc_form_validators.dart';
 
 class VotingPage extends StatelessWidget {
   String Vkey;
+  String CreatorName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // resizeToAvoidBottomInset : false,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         // automaticallyImplyLeading: false,
         title: Text('Get ID'),
@@ -16,14 +20,40 @@ class VotingPage extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(30.0),
             padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(color: Colors.grey[400])
-                )
+            child: TextFormField(
+              onChanged: (val){this.CreatorName=val;},
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                ),
+                hintText: "Enter Creator name",
+                hintStyle: TextStyle(color: Colors.grey),
+                border: InputBorder.none,
+              ),
+              // validator: (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Field is Required';
+              //   }
+              //   return null;
+              // },
+              validator: Validators.required('Occupation is required'),
             ),
-            child: TextField(
+          ),
+          Container(
+            margin: EdgeInsets.all(30.0),
+            padding: EdgeInsets.all(10),
+            child: TextFormField(
               onChanged: (val){this.Vkey=val;},
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                ),
                 hintText: "Enter the Voting ID",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none,
@@ -31,9 +61,15 @@ class VotingPage extends StatelessWidget {
               maxLength: 6,
               // ignore: deprecated_member_use
               maxLengthEnforced: true,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Field is Required';
+                }
+                return null;
+              },
             ),
           ),
-          SizedBox(height: 30.0,),
+          SizedBox(height: 25.0,),
           Container(
             // ignore: deprecated_member_use
             child: RaisedButton(
@@ -54,7 +90,7 @@ class VotingPage extends StatelessWidget {
               onPressed: () {
                 // Navigator.pushNamed(context, '/vpanel');
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => VotingPanel(Vkey: this.Vkey,))
+                    MaterialPageRoute(builder: (context) => VotingPanel(Vkey: this.Vkey,CreatorName: this.CreatorName,))
                 );
               },
             ),

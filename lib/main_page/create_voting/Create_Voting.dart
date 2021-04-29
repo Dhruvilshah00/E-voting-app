@@ -17,6 +17,7 @@ class CreateVoting extends StatelessWidget {
     return StreamProvider<List<Candi>>.value(
       value: DatabaseService(Vkey: this.Vkey).Candidate,
       child: Scaffold(
+        backgroundColor: Colors.grey[200],
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.blueAccent,
@@ -75,7 +76,7 @@ class CreateVoting extends StatelessWidget {
             // );
           },
         ),
-        body: Candidate_List(Vkey: this.Vkey,),
+        body: Container(padding :EdgeInsets.only(bottom: 54),child: Candidate_List(Vkey: this.Vkey,)),
       ),
     );
   }

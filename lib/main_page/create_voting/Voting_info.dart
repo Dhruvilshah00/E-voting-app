@@ -20,7 +20,7 @@ class VotingDetails extends StatelessWidget {
     final user = Provider.of<UserData>(context);
 
     return Scaffold(
-
+      backgroundColor: Colors.grey[200],
       resizeToAvoidBottomInset : false,
       appBar: AppBar(
         title: Text('Voting Details'),
@@ -38,6 +38,18 @@ class VotingDetails extends StatelessWidget {
                   onChanged: (value){this.V_name=value;},
                   // autofocus:true,
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red,width: 1.5),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
                     labelText: 'Voting Name',
                   ),
                   validator: (value) {
@@ -54,6 +66,18 @@ class VotingDetails extends StatelessWidget {
                 child: TextFormField(
                   onChanged: (value){this.post=value;},
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red,width: 1.5),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
                     labelText: 'Voting for (Name of the Post)',
                   ),
                   validator: (value) {
@@ -71,6 +95,18 @@ class VotingDetails extends StatelessWidget {
                   onChanged: (value){this.host=value;},
                   // autofocus:true,
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red,width: 1.5),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
                     labelText: 'Hosted by',
                   ),
                   validator: Validators.required('Host Name is required'),
@@ -82,8 +118,23 @@ class VotingDetails extends StatelessWidget {
                   onChanged: (value){this.VotingKey=value;},
                   // autofocus:true,
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red,width: 1.5),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
                     labelText: 'Voting Key',
                   ),
+                  maxLength: 6,
+                  // ignore: deprecated_member_use
+                  maxLengthEnforced: true,
                   validator: Validators.required('Voting Key is required'),
                 ),
               ),

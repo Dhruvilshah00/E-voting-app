@@ -96,6 +96,12 @@ class DatabaseService {
       'host':host,
       'votingkey':VotingKey,
       'IsStart':0,
+      'usersvote':[],
+    });
+  }
+  Future UpdateVotedUsers({String userid, String VotingKey}){
+    return candidate.doc(VotingKey).update({
+      'usersvote': FieldValue.arrayUnion([userid]),
     });
   }
 
@@ -148,6 +154,17 @@ class DatabaseService {
         .collection('$CreatorName')
         // .orderBy('CandidateName',descending: true)
         .snapshots().map(_CandidateListFromSnapshot);
+  }
+  CollectionReference voter =  FirebaseFirestore.instance.collection("voter_collection");
+  Future VoterCollection(String uid){
+    return voter.doc(Vkey).collection(Vkey).doc(uid).set({
+      'hasVote':0,
+    });
+  }
+  Future UpdateVoter(String uid){
+    return voter.doc(Vkey).collection(Vkey).doc(uid).update({
+      'hasVote':1
+    });
   }
 
 

@@ -84,6 +84,18 @@ class MyCustomFormState extends State<MyCustomForm> {
                 child: TextFormField(
                   // autofocus:true,
                   decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.red,width: 1.5),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                      ),
                     labelText: 'Occupation',
                   ),
                   validator: Validators.required('Occupation is required'),
@@ -94,6 +106,18 @@ class MyCustomFormState extends State<MyCustomForm> {
                 padding: EdgeInsets.all(10),
                 child: TextFormField(
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red,width: 1.5),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                    ),
                     labelText: 'E-mail',
                   ),
                   validator: Validators.email('Enter valid E-mail Address'),

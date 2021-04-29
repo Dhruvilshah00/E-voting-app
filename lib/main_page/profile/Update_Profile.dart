@@ -19,6 +19,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
     final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text('UpdateProfile'),
       ),
@@ -43,6 +44,12 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           initialValue: userData.name??'name',
                           onChanged: (value)=>currentName=value,
                           decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                            ),
                             labelText: 'Name',
                           ),
                           validator: (value) {
@@ -63,6 +70,12 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           onChanged: (value)=>currentOccupation=value,
                           // autofocus:true,
                           decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                            ),
                             labelText: 'Occupation',
                           ),
                           validator:

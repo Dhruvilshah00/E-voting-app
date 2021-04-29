@@ -3,10 +3,12 @@ import 'package:voting_app_final/main_page/result/Result_panel.dart';
 
 class ResultPage extends StatelessWidget {
   String Vkey;
+  String CreatorName;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         // automaticallyImplyLeading: false,
         title: Text('Get ID'),
@@ -17,14 +19,45 @@ class ResultPage extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(30.0),
             padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(color: Colors.grey[400])
-                )
+            child: TextFormField(
+              onChanged: (val){this.CreatorName=val;},
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red,width: 1.5),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                ),
+                hintText: "Enter Creator name",
+                hintStyle: TextStyle(color: Colors.grey),
+                border: InputBorder.none,
+              ),
             ),
+          ),
+          Container(
+            margin: EdgeInsets.all(30.0),
+            padding: EdgeInsets.all(10),
             child: TextField(
               onChanged: (val){this.Vkey=val;},
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red,width: 1.5),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                ),
                   hintText: "Enter the unique ID",
                   hintStyle: TextStyle(color: Colors.grey),
                   border: InputBorder.none,
@@ -34,7 +67,7 @@ class ResultPage extends StatelessWidget {
               maxLengthEnforced: true,
             ),
           ),
-          SizedBox(height: 30.0,),
+          SizedBox(height: 25.0,),
           Container(
             // ignore: deprecated_member_use
             child: RaisedButton(
@@ -56,7 +89,7 @@ class ResultPage extends StatelessWidget {
                 print('key : ${this.Vkey}');
                 // Navigator.pushNamed(context, '/result');
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultPanel(Vkey: this.Vkey,))
+                    MaterialPageRoute(builder: (context) => ResultPanel(Vkey: this.Vkey,CreatorName: this.CreatorName,))
                 );
               },
 

@@ -6,15 +6,20 @@ import 'package:voting_app_final/services/database.dart';
 
 class VoteCandidate extends StatelessWidget {
   final String Vkey;
+  final String CreatorName;
+  List UsersVote=[];
+  var arr=[];
+  // final bool hasVote;
 
-  VoteCandidate({this.Vkey});
+  VoteCandidate({this.Vkey,this.UsersVote,this.CreatorName});
   @override
   Widget build(BuildContext context) {
+    print('user votes $UsersVote');
     final user = Provider.of<UserData>(context);
     return StreamBuilder<QuerySnapshot>(
 
         stream: FirebaseFirestore.instance
-            .collection('Candidate_collection/${this.Vkey}/${user.name}')
+            .collection('Candidate_collection/${this.Vkey}/${CreatorName}')
         // .doc(user.name)
         // .collection('50')
             .snapshots(),
@@ -43,7 +48,17 @@ class VoteCandidate extends StatelessWidget {
                       color: Colors.blue,
                       textColor: Colors.white,
                       onPressed: (){
-                        DatabaseService(Vkey: this.Vkey).UpdateVote(vote: userData.data()['vote'],Vkey: this.Vkey,name: user.name,cand: userData.data()['CandidateName']);
+                        if(!UsersVote.contains(user.uid))
+                        {
+                          // UsersVote.add(user.uid);
+                          arr.add(user.uid);
+                          DatabaseService(Vkey: Vkey).UpdateVotedUsers(userid: user.uid,VotingKey: Vkey);
+                          print(arr);
+                          DatabaseService(Vkey: this.Vkey).UpdateVote(vote: userData.data()['vote'],Vkey: this.Vkey,name: this.CreatorName,cand: userData.data()['CandidateName']);
+                        }
+                        else{
+                          print('You have already Voted');
+                        }
                       },
                       child: Text('Vote',
                         style: TextStyle(

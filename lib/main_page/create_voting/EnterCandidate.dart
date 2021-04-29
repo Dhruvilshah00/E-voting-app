@@ -27,6 +27,7 @@ class EnterCandidate extends  StatelessWidget {
 
     //Add candidate to Creating Voting
     return  Scaffold(
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Container(
             child: Form(
@@ -40,6 +41,18 @@ class EnterCandidate extends  StatelessWidget {
                     child: TextFormField(
                       autofocus:true,
                       decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red,width: 1.5),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                        ),
                         labelText: 'Candidate Name',
                       ),
                       onChanged: (value){
@@ -58,6 +71,18 @@ class EnterCandidate extends  StatelessWidget {
                     padding: EdgeInsets.all(10),
                     child: TextFormField(
                       decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red,width: 1.5),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                        ),
                         labelText: 'Enter Slogan',
                       ),
                       onChanged: (value){
@@ -66,6 +91,26 @@ class EnterCandidate extends  StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.0,),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey,width: 1.5),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red,width: 1.5),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue,width: 1.5),
+                        ),
+                        labelText: 'Age',
+                      ),
+                    ),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [

@@ -5,7 +5,8 @@ import 'package:voting_app_final/services/auth.dart';
 
 class Results extends StatefulWidget {
   String Vkey;
-  Results({this.Vkey}){
+  String CreatorName;
+  Results({this.Vkey,this.CreatorName}){
     print('result : ${Vkey}');
   }
 
@@ -21,7 +22,7 @@ class _ResultsState extends State<Results> {
     return StreamBuilder(
 
         stream: FirebaseFirestore.instance
-            .collection('Candidate_collection/${widget.Vkey}/${user.name}')
+            .collection('Candidate_collection/${widget.Vkey}/${widget.CreatorName}')
         // .doc(user.name)
         // .collection('50')
             .snapshots(),
@@ -41,8 +42,18 @@ class _ResultsState extends State<Results> {
                     subtitle: Text(
                       userData.data()['slogan']??'',
                     ),
-                    trailing: Container(
-                        child: Text('No. of Vote: ${userData.data()['vote']}')
+                    trailing: Padding(
+                      padding: EdgeInsets.all(10),
+                      // backgroundColor: Colors.cyan,
+                        child: FlatButton(
+                          color: Colors.blue[400],
+                          onPressed: () {},
+                          child: Text('No. of Vote: ${userData.data()['vote']}',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                      ),
+                        ),
                     ),
                   ),
                 ): CircularProgressIndicator() ;

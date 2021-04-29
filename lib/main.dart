@@ -31,12 +31,13 @@ class MyApp extends StatelessWidget{
 
     return StreamProvider.value(
       child: new MaterialApp(
+        color: Colors.grey,
         debugShowCheckedModeBanner: false,
         home: LoginPage(auth: Auth(),),
         initialRoute: '/Landing',//'/mainp',
         routes: {
           '/candidate':(context)=>EnterCandidate(),
-          '/cv':(context)=> CreateVoting(Vkey: "hello",),
+          '/cv':(context)=> CreateVoting(),
           '/Landing':(context) => LandingPage(auth: Auth(),),
           '/home':(context) => LoginPage(auth: Auth(),),
           '/updateprofile':(context)=>UpdateProfile(),
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget{
           '/result':(context) => Results(),
           '/profilep':(context) => ProviderProfile(),
           '/vi':(context) => VotingDetails(),
-          '/cl':(context) => Candidate_List(Vkey: "hi",),
+          '/cl':(context) => Candidate_List(),
           '/vp':(context) => VotingPage(),
           '/vpanel':(context) => VotingPanel(),
         },
